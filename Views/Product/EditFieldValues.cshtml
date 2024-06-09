@@ -1,0 +1,50 @@
+@model ShopProject.Models.FieldValuesViewModel
+
+@{
+    ViewData["Title"] = "Edit Field Values";
+}
+
+<h1>Edit Field Values</h1>
+
+<form asp-action="EditFieldValues" asp-controller="Product" enctype="multipart/form-data" method="post">
+    @Html.HiddenFor(m => m.CategoryId)
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (int i = 0; i < Model.Fields.Count; i++)
+        {
+            <tr>
+                <td>@Model.Fields[i].Name</td>
+                <td>
+                    <input type="hidden" name="FieldValues[@i].FieldId" value="@Model.Fields[i].Id"/>
+                    <input type="hidden" name="FieldValues[@i].CategoryId" value="@Model.CategoryId"/>
+                    <input type="hidden" name="FieldValues[@i].ProductId" value="@Model.ProductId"/>
+                    @* <input type="hidden" name="FieldValues[@i].idStatus" value="1" /> *@
+                    @if (i >= 0)
+                    {
+                        <input type="text" name="FieldValues[@i].value" value="@Model.FieldValues[@i].Value"/>
+                    }
+                    else
+                    {
+                        <input type="text" name="FieldValues[@i].value"/>
+                    }
+                    
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,441 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/raz/ShopProject/obj/Debug/net8.0/scopedcss/projectbundle/ShopProject.bundle.scp.css",
+      "PackagePath": "staticwebassets/ShopProject.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/0270eeee-1650-47ba-b77c-b09b6cc64d63.jpg",
+      "PackagePath": "staticwebassets/Images/0270eeee-1650-47ba-b77c-b09b6cc64d63.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/087fc998-689b-4262-a3cd-307f65e90c37.webp",
+      "PackagePath": "staticwebassets/Images/087fc998-689b-4262-a3cd-307f65e90c37.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/08fccca3-8fce-4358-9500-1c636f31b790.jpg",
+      "PackagePath": "staticwebassets/Images/08fccca3-8fce-4358-9500-1c636f31b790.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/0abcc388-c2af-4ec1-af64-6b6532b572fa.jpg",
+      "PackagePath": "staticwebassets/Images/0abcc388-c2af-4ec1-af64-6b6532b572fa.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/16e340cb-d394-4063-80f8-fac054c84361.jpg",
+      "PackagePath": "staticwebassets/Images/16e340cb-d394-4063-80f8-fac054c84361.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/1fc24d4d-3e24-46f6-8292-30743d736f4e.jpg",
+      "PackagePath": "staticwebassets/Images/1fc24d4d-3e24-46f6-8292-30743d736f4e.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/246d9367-7f6a-4723-b5ce-2509260f0c8a.jpg",
+      "PackagePath": "staticwebassets/Images/246d9367-7f6a-4723-b5ce-2509260f0c8a.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/27cf66a2-9050-485c-8258-e299ca337800.jpg",
+      "PackagePath": "staticwebassets/Images/27cf66a2-9050-485c-8258-e299ca337800.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/2f08b7e1-0cca-4a26-84c8-6687dd016cc5.jpg",
+      "PackagePath": "staticwebassets/Images/2f08b7e1-0cca-4a26-84c8-6687dd016cc5.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/39f963d5-1990-4aa9-9d64-f6fbd9787afe.jpg",
+      "PackagePath": "staticwebassets/Images/39f963d5-1990-4aa9-9d64-f6fbd9787afe.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/3a162dc2-b4c0-4c6f-9bf4-9bcc8df232b8.jpg",
+      "PackagePath": "staticwebassets/Images/3a162dc2-b4c0-4c6f-9bf4-9bcc8df232b8.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/3e14aec0-520e-4950-89b8-e1604a881efd.jpeg",
+      "PackagePath": "staticwebassets/Images/3e14aec0-520e-4950-89b8-e1604a881efd.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/50b32dfa-e3bc-49bd-bbb8-cda4a2710e10.jpg",
+      "PackagePath": "staticwebassets/Images/50b32dfa-e3bc-49bd-bbb8-cda4a2710e10.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/5ec180bf-cccd-486c-9ec9-4c15b618266f.jpeg",
+      "PackagePath": "staticwebassets/Images/5ec180bf-cccd-486c-9ec9-4c15b618266f.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/61ac6b2a-6369-4412-9fc7-7b400b2eae98.jpg",
+      "PackagePath": "staticwebassets/Images/61ac6b2a-6369-4412-9fc7-7b400b2eae98.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/67432a17-377c-48b1-9206-888f206e9cff.png",
+      "PackagePath": "staticwebassets/Images/67432a17-377c-48b1-9206-888f206e9cff.png"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/6d7f5cea-d4d3-4eb3-a5f3-631b7e75df5f.jpg",
+      "PackagePath": "staticwebassets/Images/6d7f5cea-d4d3-4eb3-a5f3-631b7e75df5f.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/6dfae811-fe58-47c1-becc-db0608dc6a65.jpg",
+      "PackagePath": "staticwebassets/Images/6dfae811-fe58-47c1-becc-db0608dc6a65.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/708be54d-dff6-48cc-98f6-fb0a2a07d59c.webp",
+      "PackagePath": "staticwebassets/Images/708be54d-dff6-48cc-98f6-fb0a2a07d59c.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/732a81de-60d9-4426-b2b7-e1e408dc76d0.jpeg",
+      "PackagePath": "staticwebassets/Images/732a81de-60d9-4426-b2b7-e1e408dc76d0.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/73cd3296-93be-4300-b202-fe97d0aa62d9.jpg",
+      "PackagePath": "staticwebassets/Images/73cd3296-93be-4300-b202-fe97d0aa62d9.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/74bbc965-d95c-49fc-952c-3d7d1a850d92.webp",
+      "PackagePath": "staticwebassets/Images/74bbc965-d95c-49fc-952c-3d7d1a850d92.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/7ceffa3f-163a-458d-9e63-8208a1bcbeca.jpg",
+      "PackagePath": "staticwebassets/Images/7ceffa3f-163a-458d-9e63-8208a1bcbeca.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/7d7a05e8-bf70-489a-8d6e-f863a865bc05.jpg",
+      "PackagePath": "staticwebassets/Images/7d7a05e8-bf70-489a-8d6e-f863a865bc05.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/85a451bb-1f52-46cc-b7d0-6a8f56e74790.jpg",
+      "PackagePath": "staticwebassets/Images/85a451bb-1f52-46cc-b7d0-6a8f56e74790.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/8cc0e73b-f1fd-48d0-bcc1-a167ee015741.jpeg",
+      "PackagePath": "staticwebassets/Images/8cc0e73b-f1fd-48d0-bcc1-a167ee015741.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/8dcc7a6c-b9d8-4039-86d7-708fe8b7d3de.webp",
+      "PackagePath": "staticwebassets/Images/8dcc7a6c-b9d8-4039-86d7-708fe8b7d3de.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/8f8af680-765e-453a-920f-314e1f9504fd.png",
+      "PackagePath": "staticwebassets/Images/8f8af680-765e-453a-920f-314e1f9504fd.png"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/8fb050a3-a358-49fc-ad1f-b83f451ed6b1.jpeg",
+      "PackagePath": "staticwebassets/Images/8fb050a3-a358-49fc-ad1f-b83f451ed6b1.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/94d55bd4-4fd2-492f-a7ff-bd89cdc15197.webp",
+      "PackagePath": "staticwebassets/Images/94d55bd4-4fd2-492f-a7ff-bd89cdc15197.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/a04a5e84-afdb-4cca-afd3-4ab3ce310878.jpg",
+      "PackagePath": "staticwebassets/Images/a04a5e84-afdb-4cca-afd3-4ab3ce310878.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/a3854026-0728-4b7e-8aad-241c7f18bd82.jpeg",
+      "PackagePath": "staticwebassets/Images/a3854026-0728-4b7e-8aad-241c7f18bd82.jpeg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/b9846f21-2f5d-4a59-a0ed-004d6c728b52.jpg",
+      "PackagePath": "staticwebassets/Images/b9846f21-2f5d-4a59-a0ed-004d6c728b52.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/be9b8391-6ba7-4baa-b5c6-93537088bac6.png",
+      "PackagePath": "staticwebassets/Images/be9b8391-6ba7-4baa-b5c6-93537088bac6.png"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/c0e8e84e-fc3a-4b09-9f10-02f974a2fb86.jpg",
+      "PackagePath": "staticwebassets/Images/c0e8e84e-fc3a-4b09-9f10-02f974a2fb86.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/d426f316-cc3f-4813-a1cd-c2b51173ddd6.webp",
+      "PackagePath": "staticwebassets/Images/d426f316-cc3f-4813-a1cd-c2b51173ddd6.webp"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/d979ec47-e1c8-48a9-be09-51b5ba63f90b.png",
+      "PackagePath": "staticwebassets/Images/d979ec47-e1c8-48a9-be09-51b5ba63f90b.png"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/e56b755e-048d-4dbc-90e1-b63b69f28b8a.jpg",
+      "PackagePath": "staticwebassets/Images/e56b755e-048d-4dbc-90e1-b63b69f28b8a.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/eb2757ab-e45e-4f2f-bc4c-a5c008bf19b3.jpg",
+      "PackagePath": "staticwebassets/Images/eb2757ab-e45e-4f2f-bc4c-a5c008bf19b3.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/efb4c639-29ac-4eaf-81c6-9bc1401d6158.jpg",
+      "PackagePath": "staticwebassets/Images/efb4c639-29ac-4eaf-81c6-9bc1401d6158.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/f66ae1d8-ff13-44bc-8b5e-04e1be13f65b.jpg",
+      "PackagePath": "staticwebassets/Images/f66ae1d8-ff13-44bc-8b5e-04e1be13f65b.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/f876cfb6-06c3-4ffd-a54b-6eb95ebfbbe4.jpg",
+      "PackagePath": "staticwebassets/Images/f876cfb6-06c3-4ffd-a54b-6eb95ebfbbe4.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/f9000eb2-8f27-46bb-8467-c5e624131f0f.jpg",
+      "PackagePath": "staticwebassets/Images/f9000eb2-8f27-46bb-8467-c5e624131f0f.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/Images/fb681661-8130-400a-915e-79d41a9eff54.jpg",
+      "PackagePath": "staticwebassets/Images/fb681661-8130-400a-915e-79d41a9eff54.jpg"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/raz/ShopProject/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ShopProject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.ShopProject.props",
+      "PackagePath": "build\\ShopProject.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.ShopProject.props",
+      "PackagePath": "buildMultiTargeting\\ShopProject.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.ShopProject.props",
+      "PackagePath": "buildTransitive\\ShopProject.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
