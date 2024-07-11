@@ -127,6 +127,61 @@ namespace ShopProject.Controllers
         // POST: Category/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> Edit(int id, CategoryFieldViweModel categoryFieldVm)
+        // {
+        //     if (id != categoryFieldVm.Categori.Id)
+        //     {
+        //         return NotFound();
+        //     }
+        //
+        //     if (ModelState.IsValid)
+        //     {
+        //         try
+        //         {
+        //             Category? category = await _context.Category
+        //                 .Include(c => c.Fields)
+        //                 .FirstOrDefaultAsync(c => c.Id == id);
+        //             if (category == null)
+        //             {
+        //                 return NotFound();
+        //             }
+        //             category.Fields = categoryFieldVm.Fields;
+        //             category.ParentId = categoryFieldVm.Categori.ParentId;
+        //             category.Name = categoryFieldVm.Categori.Name;
+        //             _context.Update(category);
+        //             if (categoryFieldVm.Fields != null)
+        //             {
+        //                 foreach (var field in categoryFieldVm.Fields)
+        //                 {
+        //                     var fields = category.Fields.FirstOrDefault(f => f.Id == field.Id);
+        //                     fields.Name = field.Name;
+        //                     fields.CategoryId = field.CategoryId;
+        //                     _context.Field.Update(fields);
+        //                 }
+        //             }
+        //             // _context.AddRangeAsync(categoryFieldVm.Fields);
+        //             await _context.SaveChangesAsync();
+        //         }
+        //         catch (DbUpdateConcurrencyException)
+        //         {
+        //             if (!CategoryExists(categoryFieldVm.Categori.Id))
+        //             {
+        //                 return NotFound();
+        //             }
+        //             else
+        //             {
+        //                 throw;
+        //             }
+        //         }
+        //         return RedirectToAction(nameof(Index));
+        //     }
+        //     ViewData["ParentId"] = new SelectList(_context.Category, "Id", "Name", categoryFieldVm.Categori.ParentId);
+        //     return View(categoryFieldVm);
+        // }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, CategoryFieldViweModel categoryFieldVm)
@@ -147,28 +202,38 @@ namespace ShopProject.Controllers
                     {
                         return NotFound();
                     }
-                    category.Fields = categoryFieldVm.Fields;
-                    category.ParentId = categoryFieldVm.Categori.ParentId;
+
+                    // Update category properties
                     category.Name = categoryFieldVm.Categori.Name;
-                    _context.Update(category);
+                    category.ParentId = categoryFieldVm.Categori.ParentId;
                     if (categoryFieldVm.Fields != null)
                     {
                         foreach (var field in categoryFieldVm.Fields)
                         {
-                            var fields = category.Fields.FirstOrDefault(f => f.Id == field.Id);
-                            fields.Name = field.Name;
-                            fields.CategoryId = field.CategoryId;
-                            _context.Field.Update(fields);
+                            if (field.Id == 0)
+                            {
+                                // Add new field
+                                var newField = new Field
+                                {
+                                    Name = field.Name,
+                                    Category = category,
+                                };
+                                _context.Field.Add(newField);
+                            }
+                            else
+                            {
+                                // Update existing field
+                                var existingField = category.Fields.FirstOrDefault(f => f.Id == field.Id);
+                                existingField.Name = field.Name;
+                                existingField.CategoryId = field.CategoryId;
+                                existingField.IsDeleted = field.IsDeleted;
+                                _context.Field.Update(existingField);
+                            }
                         }
                     }
-                    // _context.AddRangeAsync(categoryFieldVm.Fields);
-                    // foreach (var field in categoryFieldVm.Fields)
-                    // {
-                    //     var fields = category.Fields.FirstOrDefault(f => f.Id == field.Id);
-                    //     fields.Name = field.Name;
-                    //     fields.CategoryId = field.CategoryId;
-                    //     _context.Set<Field>().Update(fields);
-                    // }
+                    // Update existing fields and add new fields
+
+                    // _context.Update(category);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -220,6 +285,10 @@ namespace ShopProject.Controllers
                 .FirstOrDefaultAsync(c => c.Id == id);
             if (category != null)
             {
+                foreach (var field in category.Fields)
+                {
+                    _context.Field.Remove(field);
+                }
                 _context.Category.Remove(category);
                 await _context.SaveChangesAsync();
             }

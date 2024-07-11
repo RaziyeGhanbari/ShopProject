@@ -30,12 +30,13 @@
             {
                 for (int i = 0; i < Model.Fields.Count; i++)
                 {
-                    <div class="form-group">
+                    <div class="form-group" id="existing-field-@i">
                         <label asp-for="@Model.Fields[i].Name" class="control-label"></label>
                         <input asp-for="@Model.Fields[i].Name" class="form-control"/>
                         <span asp-validation-for="@Model.Fields[i].Name" class="text-danger"></span>
-                        <input type="hidden" name="field.Id" value="@Model.Fields[i].Id"/>
-                        <input type="hidden" name="field.CategoryId" value="@Model.Fields[i].CategoryId"/>
+                        <input type="hidden" name="Fields[@i].Id" value="@Model.Fields[i].Id"/>
+                        <input type="hidden" name="Fields[@i].CategoryId" value="@Model.Fields[i].CategoryId"/>
+                        <button type="button" class="btn btn-danger ml-2" onclick="removeExistingField(@i)">Remove</button>
                     </div>
                 }
             }
@@ -61,8 +62,6 @@
                 <button type="button" class="btn btn-secondary" onclick="addField()">Add Field</button>
             </div>
             <br/>
-
-
         </form>
     </div>
 </div>
@@ -74,20 +73,20 @@
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
     <script>
-    var fieldIndex = 0;
-
+    var fieldIndex = @Model.Fields.Count;
+    
     function addField() {
         var container = document.getElementById('additional-fields');
-
+    
         var inputGroup = document.createElement('div');
         inputGroup.className = 'input-group mb-3';
-
+    
         var input = document.createElement('input');
         input.type = 'text';
         input.name = 'Fields[' + fieldIndex + '].Name';
         input.className = 'form-control';
         input.placeholder = 'Enter field name';
-
+    
         var removeButton = document.createElement('button');
         removeButton.innerHTML = 'Remove';
         removeButton.type = 'button';
@@ -95,11 +94,33 @@
         removeButton.onclick = function() {
             container.removeChild(inputGroup);
         };
-
+    
         inputGroup.appendChild(input);
         inputGroup.appendChild(removeButton);
         container.appendChild(inputGroup);
         fieldIndex++;
     }
+
+    function removeExistingField(index) {
+        var fieldElement = document.getElementById('existing-field-' + index);
+        fieldElement.style.display = 'none';
+        // Add a hidden input to mark this field as removed
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'Fields[' + index + '].IsDeleted';
+        input.value = 'true';
+        fieldElement.appendChild(input);
+    }
 </script>
 }
+@* function removeExistingField(index) { *@
+@* var fieldElement = document.getElementById('existing-field-' + index); *@
+@* fieldElement.remove(); *@
+@* // Add a hidden input to mark this field as removed *@
+@* var container = document.getElementById('additional-fields'); *@
+@* var input = document.createElement('input'); *@
+@* input.type = 'hidden'; *@
+@* input.name = 'Fields[' + index + '].IsRemoved'; *@
+@* input.value = 'true'; *@
+@* container.appendChild(input); *@
+@* } *@

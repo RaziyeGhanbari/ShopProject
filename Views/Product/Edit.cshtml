@@ -28,10 +28,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control"/>
+                <input asp-for="Price" class="form-control" id="priceInput" />
                 <span asp-validation-for="Price" class="text-danger"></span>
+                <small id="priceDisplay" class="form-text text-muted"></small>
             </div>
-
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label">Image</label>
                 <br>
@@ -60,8 +60,8 @@
 </div>
 
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-    <script>
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+<script>
     function goToAddFieldValues() {
         var categoryId = document.querySelector('[name="CategoryId"]').value;
         if (categoryId) {
@@ -70,5 +70,17 @@
             alert("Please select a category.");
         }
     }
+    $(document).ready(function() {
+        function formatPrice(price) {
+            return price.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        $('#priceInput').on('input', function() {
+            var price = $(this).val();
+            var formattedPrice = formatPrice(price);
+            $('#priceDisplay').text(formattedPrice + ' ریال');
+        });
+    });
 </script>
 }
+

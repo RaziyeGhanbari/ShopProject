@@ -6,6 +6,7 @@ public class Category
     public int Id { get; set; }
     
     [StringLength(30)]
+    [Display(Name = "Name of Category")]
     public string? Name { get; set; }
     public int? ParentId { get; set; } = null!;
     [Display(Name = "Parent")]

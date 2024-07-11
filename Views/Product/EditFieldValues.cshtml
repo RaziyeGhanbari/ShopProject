@@ -23,11 +23,19 @@
                 <td>
                     <input type="hidden" name="FieldValues[@i].FieldId" value="@Model.Fields[i].Id"/>
                     <input type="hidden" name="FieldValues[@i].CategoryId" value="@Model.CategoryId"/>
-                    <input type="hidden" name="FieldValues[@i].ProductId" value="@Model.ProductId"/>
+                    <input type="hidden" name="FieldValues[@i].ProductId" value="
+@Model.ProductId"/>
                     @* <input type="hidden" name="FieldValues[@i].idStatus" value="1" /> *@
                     @if (i >= 0)
                     {
-                        <input type="text" name="FieldValues[@i].value" value="@Model.FieldValues[@i].Value"/>
+                        @if (Model.FieldValues.Count > 0)
+                        {
+                            <input type="text" name="FieldValues[@i].value" value="@Model.FieldValues[@i].Value"/>
+                        }
+                        else
+                        {
+                            <input type="text" name="FieldValues[@i].value" />
+                        }
                     }
                     else
                     {
@@ -48,3 +56,4 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+

@@ -1,3 +1,4 @@
+@using ShopProject.Helpers
 @model ShopProject.Models.FilterViewModel;
 
 @{
@@ -17,17 +18,24 @@
     <a asp-controller="Category" asp-action="Index" class="btn btn-primary">List of categories</a>
 </p>
 
-<form asp-action="Index" asp-controller="Product">
-    <p>
-        Category:
-        <select asp-for="SearchCategory" asp-items="ViewBag.Categories">
-            <option value="">Select a category</option>
-        </select>
-        <input type="submit" value="Filter"/>
-    </p>
+<form asp-action="Index" asp-controller="Product" method="get">
+    <label asp-for="SearchCategoryId">Category:</label>
+    <select id="categorySelect" asp-for="SearchCategoryId" asp-items="ViewBag.Categories" class="form-control" onchange="loadSubcategories(this)">
+        <option value="">یک دسته بندی را انتخاب کنید</option>
+    </select>
+    <input type="submit" value="Filter" class="btn btn-primary"/>
 </form>
 
-
+<div id="subcategoryContainer" class="subcategory-container"></div>
+<form id="filterForm" asp-action="Index" asp-controller="Product" method="get">
+    <div id="fieldsContainer" style="display: none;">
+        <!-- Fields will be populated here -->
+    </div>
+    @* <input type="hidden" id="fieldValues" name="fieldFilters" /> *@
+    <input type="submit" value="Filter by value"  class="btn btn-primary"/>
+</form>
+<button id="showFields" class="btn btn-primary" onclick="loadFields()">show fields</button>
+@* <button id="filterButton" class="btn btn-primary" onclick="filterProducts()" style="display: none;">Filter</button> *@
 <table class="table">
     <thead>
     <tr>
@@ -53,7 +61,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @* @Html.DisplayFor(modelItem => item.Price) *@
+                @CurrencyHelper.FormatPrice(item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category.Name)
@@ -70,3 +79,109 @@
     }
     </tbody>
 </table>
+
+
+@* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> *@
+@* <script> *@
+@*     $("#for-test").on('click',function (){ *@
+@*             let x = $("#name").val().toString(); *@
+@*             $.ajax({ *@
+@*                 url: "/Product/=" + x, *@
+@*                 type: 'GET', *@
+@*                 dataType: 'Json', *@
+@*                 success: function(response) { *@
+@*                     console.log(response); *@
+@*                 }, *@
+@*                 error: function (...err) { *@
+@*                     console.log(err); *@
+@*                 } *@
+@*             }); *@
+@*     } *@
+@*     ) *@
+@* </script> *@
+
+
+@* ok whout fieldValue *@
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    function loadSubcategories(element) {
+        var parentId = parseInt($(element).val());
+        var container = $('#subcategoryContainer');
+
+        if (parentId) {
+            $.ajax({
+                url: '/Product/GetSubcategoriesPartial?parentId=' + parentId,
+                type: 'GET',
+                success: function (response) {
+                    var newSelect = $('<div class="subcategory-container">' + response + '</div>');
+                    container.append(newSelect);
+                    $('#filterButton').show();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    }
+
+    @*function filterProducts() {
+        var searchCategoryId = parseInt($('#categorySelect').val());
+        var subCategoryId = parseInt($('.subcategory-container select:last').val());
+        $.ajax({
+            url: '/Product/Index?SearchCategoryId=' + searchCategoryId + '&SubCategoryId=' + subCategoryId,
+            type: 'GET',
+            success: function (productResponse)
+            return
+                
+            });
+        }*@
+        
+        @*if (subCategoryId) {
+            window.location.href = '/Product/Index?SearchCategoryId=' + searchCategoryId + '&SubCategoryId=' + subCategoryId;
+        } else {
+            window.location.href = '/Product/Index?SearchCategoryId=' + searchCategoryId;
+        }*@
+    
+    function loadFields() {
+        var categoryId = parseInt($('.subcategory-container select:last').val());
+        $.ajax({
+            url: '/Product/GetCategoryFields?categoryId=' + categoryId,
+            type: 'GET',
+            success: function (fieldsResponse) {
+                var fieldsContainer = $('#fieldsContainer');
+                fieldsContainer.empty();
+                fieldsContainer.show();
+                @*console.log(fieldsResponse)*@
+              //  fieldsResponse.forEach(function(field, index) {
+                    fieldsContainer.append(
+                        '<div class="form-group">' +
+                        `<label>asd</label>` +
+                        `<input name="FieldValueFilters.Value" type="text"/>`+
+                        `<input type="hidden" value="21" name="FieldValueFilters[0].FieldId"/> ` +
+                        '</div>'
+                    );
+               // });
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+    @*$('#filterForm').on('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var fieldValues = [];
+        $('#fieldsContainer .field-value').each(function () {
+            var fieldId = $(this).data('field-id');
+            var value = $(this).val();
+            fieldValues.push({ FieldId: fieldId, Value: value });
+        });
+
+        $('#fieldValues').val(JSON.stringify(fieldValues));
+        this.submit();*@
+    @*});*@
+
+</script>
+}

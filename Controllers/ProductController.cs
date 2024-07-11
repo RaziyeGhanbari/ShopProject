@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using ShopProject.Data;
 using ShopProject.Models;
+using Newtonsoft.Json;
 
 namespace ShopProject.Controllers
 {
@@ -21,29 +23,234 @@ namespace ShopProject.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
-        // GET: Product
-        public async Task<IActionResult> Index(int? id, string? searchCategory)
+        // public async Task<IActionResult> ReturnHi(string name)
+        // {
+        //     var hi = $"hello {name}";
+        //     var myName = "I am raz";
+        //     var json = new
+        //     {
+        //           hi, myName
+        //     };
+        //     return Json(json);
+        // }
+        
+        [HttpGet]
+        public async Task<IActionResult> GetSubcategoriesPartial(int parentId)
         {
-            IQueryable<Product> dataset = _context.Product.Include(p => p.Category);
+            var subcategories = await _context.Category
+                .Where(c => c.ParentId == parentId)
+                .Select(c => new { c.Id, c.Name })
+                .ToListAsync();
+            return PartialView("_SubcategorySelectPartial", subcategories);
+        }
+        // function that has local recursive function to list all children of parentCategory
+        public async Task<List<int>> GetAllSubCategories(int parentId)
+        {
+            List<int> categories = [parentId];
+
+            await GetSubcategoryIdAsync(parentId);
+        
+            return categories;
+
+            // recursive local function to get list of all subCategories
+            async Task GetSubcategoryIdAsync(int id)
+            {
+                var subcategoryIds =await _context.Category
+                    .Where(category => category.ParentId == id)
+                    .Select(category => category.Id).ToListAsync();
+                
+                categories.AddRange(subcategoryIds);
+
+                foreach (var categoryId in subcategoryIds)
+                {
+                    await GetSubcategoryIdAsync(categoryId);
+                }
+            }
+        }
+        
+        public async Task<IActionResult> GetCategoryFields(int categoryId)
+        {
+            var fields = await _context.Field
+                .Where(f => f.CategoryId == categoryId)
+                .ToListAsync();
+            return Json(fields);
+        }
+        // public async Task<IActionResult> Index(int? id, int? searchCategoryId, int? subcategoryId, string fieldValues)
+        // {
+        //     IQueryable<Product> products = _context.Product.Include(p => p.Category);
+        //
+        //     if (id is not null)
+        //     {
+        //         products = products.Where(product => product.Id == id);
+        //     }
+        //     else
+        //     {
+        //         if (searchCategoryId is not null && subcategoryId == null)
+        //         {
+        //             var category = await _context.Category.FirstOrDefaultAsync(c => c.Id == searchCategoryId);
+        //             if (category != null)
+        //             {
+        //                 var categoryIds = await GetAllSubCategories(category.Id);
+        //                 products = products.Where(product => categoryIds.Contains(product.CategoryId));
+        //             }
+        //         }
+        //
+        //         if (subcategoryId is not null)
+        //         {
+        //             products = products.Where(product => product.CategoryId == subcategoryId);
+        //         }
+        //
+        //
+        //         if (!string.IsNullOrEmpty(fieldValues))
+        //         {
+        //             var fieldValuesList = JsonConvert.DeserializeObject<List<FieldValueFilter>>(fieldValues);
+        //             foreach (var fieldValue in fieldValuesList)
+        //             {
+        //                 products = products.Where(product => product.FieldValues.Any(fv => fv.FieldId == fieldValue.FieldId && fv.Value == fieldValue.Value));
+        //             }
+        //         }
+        //     }
+        //
+        //     FilterViewModel filterVm = new FilterViewModel()
+        //     {
+        //         Products = await products.ToListAsync()
+        //     };
+        //
+        //     ViewData["Categories"] = new SelectList(_context.Set<Category>().Where(c => c.ParentId == null), "Id", "Name");
+        //     return View(filterVm);
+        // }
+        
+        // ok whithout field
+        public async Task<IActionResult> Index(int? id, FilterViewModel? fieldValueFilters)
+        {
+            IQueryable<Product> products = _context.Product.Include(p => p.Category);
+        
             if (id is not null)
             {
-                dataset = dataset.Where(p => p.Id == id);
+                products = products.Where(product => product.Id == id);
             }
             else
             {
-                if (!string.IsNullOrEmpty(searchCategory))
+                if (fieldValueFilters.SearchCategoryId is not null && fieldValueFilters.SubCategoryId == null)
                 {
-                    dataset = dataset.Where(p => p.Category.Name.Contains(searchCategory));
+                    var category = await _context.Category
+                        .FirstOrDefaultAsync(c => c.Id == fieldValueFilters.SearchCategoryId);
+                    if (category != null)
+                    {
+                        var categoryIds = await GetAllSubCategories(category.Id);
+                        products = products.Where(product => categoryIds.Contains(product.CategoryId));
+                    }
                 }
+        
+                if (fieldValueFilters.SubCategoryId is not null)
+                {
+                    products = products.Where(product => product.CategoryId == fieldValueFilters.SubCategoryId);
+                    if (fieldValueFilters != null )
+                    {
+                        foreach (var fvFilter in fieldValueFilters.FieldValueFilters)
+                        {
+                            // products = products.Where(p =>
+                            //     p.FieldValues.Any(fv => fv.FieldId == fvFilter.FieldId && fv.Value.Contains(fvFilter.Value)));
+                            //
+                        }
+                    }
+                }
+                
             }
         
             FilterViewModel filterVm = new FilterViewModel()
             {
-                Products = await dataset.ToListAsync()
-            }; 
-            ViewData["Categories"] = new SelectList(_context.Set<Category>(), "Name", "Name");
+                Products = await products.ToListAsync()
+            };
+        
+            ViewData["Categories"] = new SelectList(_context.Set<Category>().Where(c => c.ParentId == null), "Id", "Name");
             return View(filterVm);
         }
+        
+        // لاشزمه
+        // public async Task<IActionResult> Index(int? id, string? searchCategory, int? subcategoryId, Dictionary<int, string> fieldFilters = null)
+        // {
+        //     IQueryable<Product> products = _context.Product.Include(p => p.Category);
+        //
+        //     if (id is not null)
+        //     {
+        //         products = products.Where(product => product.Id == id);
+        //     }
+        //     else
+        //     {
+        //         if (!string.IsNullOrEmpty(searchCategory))
+        //         {
+        //             products = products.Where(product => product.Category.Name.Contains(searchCategory));
+        //         }
+        //
+        //         if (subcategoryId is not null)
+        //         {
+        //             products = products.Where(product => product.CategoryId == subcategoryId);
+        //         }
+        //
+        //         if (fieldFilters != null && fieldFilters.Any())
+        //         {
+        //             foreach (var filter in fieldFilters)
+        //             {
+        //                 products = products.Where(p => p.FieldValues.Any(fv => fv.FieldId == filter.Key && fv.Value.Contains(filter.Value)));
+        //             }
+        //         }
+        //     }
+        //
+        //     FilterViewModel filterVm = new FilterViewModel()
+        //     {
+        //         Products = await products.ToListAsync()
+        //     };
+        //     ViewData["Categories"] = new SelectList(_context.Set<Category>().Where(c => c.ParentId == null), "Id", "Name");
+        //     return View(filterVm);
+        // }
+        // index filter fieldValue
+        // public async Task<IActionResult> Index(int? id, string? searchCategory, int? subcategoryId, Dictionary<int, string> fieldFilters = null)
+        // {
+        //     IQueryable<Product> products = _context.Product.Include(p => p.Category);
+        
+        //     if (id is not null)
+        //     {
+        //         products = products.Where(product => product.Id == id);
+        //     }
+        //     else
+        //     {
+        //         if (!string.IsNullOrEmpty(searchCategory))
+        //         {
+        //             var category = await _context.Category
+        //                 .FirstOrDefaultAsync(c => c.Name == searchCategory);
+        //             if (category != null)
+        //             {
+        //                 var categoryIds = await GetCategories(category.Id);
+        //                 products = products.Where(product => categoryIds.Contains(product.CategoryId));
+        //             }
+        //         }
+        
+        //         if (subcategoryId is not null)
+        //         {
+        //             products = products.Where(product => product.CategoryId == subcategoryId);
+        //         }
+        
+        //         if (fieldFilters != null && fieldFilters.Any())
+        //         {
+        //             foreach (var filter in fieldFilters)
+        //             {
+        //                 products = products.Where(p => p.FieldValues.Any(fv => fv.FieldId == filter.Key && fv.Value.Contains(filter.Value)));
+        //             }
+        //         }
+        //     }
+        
+        //     FilterViewModel filterVm = new FilterViewModel()
+        //     {
+        //         Products = await products.ToListAsync()
+        //     };
+        
+        //     ViewData["Categories"] = new SelectList(_context.Set<Category>().Where(c => c.ParentId == null), "Name", "Name");
+        
+        //     return View(filterVm);
+        // }
+
+
         public async Task<string?> UploadImageAsync(IFormFile file)
         {
             if (file.Length > 0)
@@ -219,7 +426,7 @@ namespace ShopProject.Controllers
                 CategoryId = productVm.CategoryId,
                 ImageUrl = productVm.ImageUrl,
                 Fields = _context.Set<Field>().Where(field => field.CategoryId == productVm.CategoryId).ToList(),
-                // FieldValues = productVm.FieldValues
+                // FieldValues = productVm.FieldValues,
                 FieldValues = _context.Set<FieldValue>().Where(fValue => fValue.ProductId == productVm.Id).ToList(),
                 // idStatus = 1
             });
@@ -321,6 +528,16 @@ namespace ShopProject.Controllers
                         fieldValue.Value = fValue.Value;
                         _context.Set<FieldValue>().Update(fieldValue);
                     }
+
+                    FieldValue newFieldValue = new FieldValue()
+                    {
+                        ProductId = fValue.ProductId,
+                        FieldId = fValue.FieldId,
+                        Value = fValue.Value,
+                        Product = fValue.Product,
+                        Field = fValue.Field,
+                    };
+                    _context.Set<FieldValue>().Add(newFieldValue);
                 }
             }
 

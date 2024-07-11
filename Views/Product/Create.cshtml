@@ -19,8 +19,9 @@ ViewData["Title"] = "Create";
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" class="form-control" id="priceInput" />
                 <span asp-validation-for="Price" class="text-danger"></span>
+                <span id="priceDisplay" class="form-text text-muted"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
@@ -36,6 +37,7 @@ ViewData["Title"] = "Create";
             <br/>
             <div class="form-group">
                 <input type="submit" value="Save and Add field" class="btn btn-secondary" onclick="goToAddFieldValues()" />
+                @* <input type="submit" value="Save and Add field" class="btn btn-secondary" id="saveAndAddFieldButton" /> *@
             </div>
         </form>
     </div>
@@ -44,18 +46,136 @@ ViewData["Title"] = "Create";
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 <script>
     function goToAddFieldValues() {
         var categoryId = document.querySelector('[name="CategoryId"]').value;
         if (categoryId) {
             window.location.href = '@Url.Action("FieldValues", "Product")?categoryId=' + categoryId;
         } else {
+        1
             alert("Please select a category.");
         }
     }
+    $(document).ready(function() {
+        function formatPrice(price) {
+            return price.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    
+        $('#priceInput').on('input', function() {
+            var price = $(this).val();
+            console.log(typeof price);
+            var formattedPrice = formatPrice(price);
+            $('#priceDisplay').text(formattedPrice + ' ریال');
+        });
+    });
 </script>
 }
+@* *@
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@*     <script> *@
+@*     function goToAddFieldValues() { *@
+@*         var categoryId = document.querySelector('[name="CategoryId"]').value; *@
+@*         if (categoryId) { *@
+@*             window.location.href = '@Url.Action("FieldValues", "Product")?categoryId=' + categoryId; *@
+@*         } else { *@
+@*             alert("Please select a category."); *@
+@*         } *@
+@*     } *@
+@*     </script> *@
+@*     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+@*     <script> *@
+@*     $(document).ready(function() { *@
+@*         function formatPrice(price) { *@
+@*             return price.replace(/\D/g, '') // Remove non-digit characters *@
+@*                 .replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Add commas *@
+@*         } *@
+@* *@
+@*         $('#priceInput').on('input', function() { *@
+@*             var input = $(this).val(); *@
+@*             var cleanInput = input.replace(/,/g, '').replace(' ریال', ''); // Remove commas and " ریال" *@
+@*             var formattedPrice = formatPrice(cleanInput) + ' ریال'; *@
+@*             $(this).val(formattedPrice); *@
+@*         }); *@
+@*     }); *@
+@*     </script> *@
+    @* } *@
+    
+    
+    
 
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@*     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+@*     <script> *@
+@*         function goToAddFieldValues() { *@
+@*             var categoryId = document.querySelector('[name="CategoryId"]').value; *@
+@*             if (categoryId) { *@
+@*                 window.location.href = '@Url.Action("FieldValues", "Product")?categoryId=' + categoryId; *@
+@*             } else { *@
+@*                 alert("Please select a category."); *@
+@*             } *@
+@*         } *@
+@* *@
+@*         $(document).ready(function() { *@
+@*             function formatPrice(price) { *@
+@*                 return price.replace(/\D/g, '') // Remove non-digit characters *@
+@*                             .replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Add commas *@
+@*             } *@
+@* *@
+@*             $('#priceInput').on('input', function() { *@
+@*                 var input = $(this).val(); *@
+@*                 var cleanInput = input.replace(/,/g, '').replace(' ریال', ''); // Remove commas and " ریال" *@
+@*                 var formattedPrice = formatPrice(cleanInput) + ' ریال'; *@
+@*                 $(this).val(formattedPrice); *@
+@*             }); *@
+@* *@
+@*             $('#productForm').on('submit', function() { *@
+@*                 var priceInput = $('#priceInput').val(); *@
+@*                 var cleanPrice = priceInput.replace(/,/g, '').replace(' ریال', ''); // Remove commas and " ریال" *@
+@*                 $('#priceInput').val(cleanPrice); *@
+@*             }); *@
+@*         }); *@
+@*     </script> *@
+@* } *@
+
+
+
+
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@*     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+@*     <script> *@
+@*         $(document).ready(function() { *@
+@*             function formatPrice(price) { *@
+@*                 return price.replace(/\D/g, '') // Remove non-digit characters *@
+@*                             .replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Add commas *@
+@*             } *@
+@* *@
+@*             $('#priceInput').on('input', function() { *@
+@*                 var input = $(this).val(); *@
+@*                 var cleanInput = input.replace(/,/g, '').replace(' ریال', ''); // Remove commas and " ریال" *@
+@*                 var formattedPrice = formatPrice(cleanInput) + ' ریال'; *@
+@*                 $(this).val(formattedPrice); *@
+@*             }); *@
+@* *@
+@*             $('#productForm').on('submit', function() { *@
+@*                 var priceInput = $('#priceInput').val(); *@
+@*                 var cleanPrice = priceInput.replace(/,/g, '').replace(' ریال', ''); // Remove commas and " ریال" *@
+@*                 $('#priceInput').val(cleanPrice); *@
+@*             }); *@
+@* *@
+@*             $('#saveAndAddFieldButton').click(function(event) { *@
+@*                 event.preventDefault(); *@
+@*                 var categoryId = $('[name="CategoryId"]').val(); *@
+@*                 if (categoryId) { *@
+@*                     window.location.href = '@Url.Action("FieldValues", "Product")?categoryId=' + categoryId; *@
+@*                 } else { *@
+@*                     alert("Please select a category."); *@
+@*                 } *@
+@*             }); *@
+@*         }); *@
+@*     </script> *@
+@* } *@
