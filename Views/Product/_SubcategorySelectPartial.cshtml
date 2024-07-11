@@ -1,0 +1,12 @@
+@model IEnumerable<dynamic>
+
+@if (Model.Any())
+{
+    <select class="form-control subcategory-select" onchange="loadSubcategories(this)">
+        <option value="">یک زیردسته را انتخاب کنید</option>
+        @foreach (var subcategory in Model)
+        {
+            <option value="@subcategory.Id">@subcategory.Name</option>
+        }
+    </select>
+}
